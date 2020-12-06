@@ -1,23 +1,20 @@
 from django.contrib import admin
-from .models import Startapp
-from .models import User
-from .models import Ptinder
-from .models import Choicelist
+from .models import StartUp, User, PageTinder, ChoiceList
 
 
-admin.site.register(Ptinder)
+admin.site.register(PageTinder)
 
 
-class Choicelistinline(admin.TabularInline):
-    model = Choicelist
+class ChoiceListinline(admin.TabularInline):
+    model = ChoiceList
     extra = 1
 
 
 @admin.register(User)
 class Useradmin(admin.ModelAdmin):
-    inlines = (Choicelistinline,)
+    inlines = (ChoiceListinline,)
 
 
-@admin.register(Startapp)
-class Startappadmin(admin.ModelAdmin):
-    inlines = (Choicelistinline,)
+@admin.register(StartUp)
+class StartUpadmin(admin.ModelAdmin):
+    inlines = (ChoiceListinline,)
