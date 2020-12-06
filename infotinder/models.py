@@ -19,9 +19,9 @@ class User(AbstractUser):
 class ChoiceList(models.Model):
     choice_type = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    StartUp = models.ForeignKey(StartUp, on_delete=models.CASCADE)
+    startapp = models.ForeignKey(StartUp, on_delete=models.CASCADE)
 
 
 class PageTinder(models.Model):
     image = models.FileField(upload_to="image/")
-    StartUp = models.ForeignKey(StartUp, on_delete=models.CASCADE)
+    startapp = models.ForeignKey(StartUp, on_delete=models.CASCADE)

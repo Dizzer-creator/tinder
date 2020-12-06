@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('infotinder', '0002_auto_20201201_1518'),
+        ("infotinder", "0002_auto_20201201_1518"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='choice_list',
-            field=models.ManyToManyField(through='infotinder.Choicelist', to='infotinder.Startapp'),
+            model_name="user",
+            name="choice_list",
+            field=models.ManyToManyField(through="infotinder.Choicelist", to="infotinder.Startapp"),
         ),
     ]
