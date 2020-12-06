@@ -13,7 +13,7 @@ class StartUp(models.Model):
 
 
 class User(AbstractUser):
-    choice_list = models.ManyToManyField(StartUp, through="Choicelist")
+    choice_list = models.ManyToManyField(StartUp, through="ChoiceList")
 
 
 class ChoiceList(models.Model):
