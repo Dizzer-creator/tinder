@@ -8,15 +8,24 @@ class StartUp(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.CharField(max_length=30)
     short_videos = models.FileField(upload_to="short_videos/")
-    description = models.TextField(max_length=500)
+    description = models.CharField(max_length=500)
     pitchdeck = models.FileField(upload_to="pitchdeck/")
 
 
 class User(AbstractUser):
-    choice_list = models.ManyToManyField(StartUp, through="ChoiceList")
+    choice_list = models.ManyToManyField(StartUp, through="StartUpUser")
+    investor = "Инвестор"
+    user = "Пользователь"
+    users_type = [(investor, "Инвестор"), (user, "Пользователь")]
+    user_type = models.CharField(max_length=20, choices=users_type, default=investor)
+    company = "Компания"
+    fund = "Фонд"
+    Private = "Частный"
+    comp_type = [(company, "Компания"), (fund, "Фонд"), (Private, "Частный")]
+    company_type = models.CharField(max_length=20, choices=comp_type, default=company)
 
 
-class ChoiceList(models.Model):
+class StartUpUser(models.Model):
     choice_type = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     startapp = models.ForeignKey(StartUp, on_delete=models.CASCADE)
