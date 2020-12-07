@@ -20,8 +20,8 @@ class User(AbstractUser):
     user_type = models.CharField(max_length=20, choices=users_type, default=investor)
     company = "Компания"
     fund = "Фонд"
-    Private = "Частный"
-    comp_type = [(company, "Компания"), (fund, "Фонд"), (Private, "Частный")]
+    private = "Частный"
+    comp_type = [(company, "Компания"), (fund, "Фонд"), (private, "Частный")]
     company_type = models.CharField(max_length=20, choices=comp_type, default=company)
 
 
