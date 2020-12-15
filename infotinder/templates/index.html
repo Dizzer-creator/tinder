@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container text-center mt-5">
-    <h1>Добро пожаловать в <br />Tinder</h1>
+<div class="container">
+{% if user.is_authenticated %}
+    <a href="/accounts/login">Профиль: {{ user.username }}</a>
+{% else %}
+    <div class="btn">
+        <a href="/accounts/login"><input type="submit" value="Войти"></a>
+        <a href="/accounts/signup"><input type="submit" value="Зарегестрироваться"></a>
+    </div>
+{% endif %}
+    <div class="text-center mt-5">
+        <h1>Добро пожаловать в <br />Tinder</h1>
+    </div>
 </div>
 {% endblock content %}

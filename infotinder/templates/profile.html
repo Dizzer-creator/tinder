@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container mt-2">
+        <div class="text-center">
+            <h1>Профиль</h1>
+        </div>
+        {% if user.is_authenticated %}
+            <h2>Пользователь: {{ user.username }}</h2>
+            {% if user.organization_types %}
+                <h2>Организация: {{ user.organization_types }}</h2>
+            {% else %}
+                <h2>Организация не указана</h2>
+            {% endif %}
+            <div class="btn">
+                <a href="/accounts/logout"><input type="submit" value="Выйти"></a>
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Вы не авторизованы хотите <a href="/accounts/login">войти</a> или <a href="/accounts/signup">зарегистрироваться</a></h2>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

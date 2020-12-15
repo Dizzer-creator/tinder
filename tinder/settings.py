@@ -54,6 +54,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 ROOT_URLCONF = "tinder.urls"
 
 TEMPLATES = [
@@ -71,6 +73,8 @@ TEMPLATES = [
         },
     },
 ]
+
+ACCOUNT_FORMS = {"signup": "infotinder.form.MyCustomSignUpForm"}
 
 WSGI_APPLICATION = "tinder.wsgi.application"
 

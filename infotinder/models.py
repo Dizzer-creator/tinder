@@ -14,15 +14,15 @@ class StartUp(models.Model):
 
 class User(AbstractUser):
     choice_list = models.ManyToManyField(StartUp, through="StartUpUser")
-    investor = "Инвестор"
-    user = "Пользователь"
-    users_type = [(investor, "Инвестор"), (user, "Пользователь")]
-    user_type = models.CharField(max_length=20, choices=users_type, default=investor)
-    company = "Компания"
-    fund = "Фонд"
-    private = "Частный"
-    comp_type = [(company, "Компания"), (fund, "Фонд"), (private, "Частный")]
-    company_type = models.CharField(max_length=20, choices=comp_type, default=company)
+    FUND = "Fund"
+    COMPANY = "Company"
+    PRIVATE = "Private"
+    ORGANIZATION_TYPE = [
+        (FUND, "Фонд"),
+        (COMPANY, "Компания"),
+        (PRIVATE, "Частное лицо"),
+    ]
+    organization_types = models.CharField(max_length=15, choices=ORGANIZATION_TYPE)
 
 
 class StartUpUser(models.Model):
